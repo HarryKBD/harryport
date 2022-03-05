@@ -30,20 +30,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initMddData();
-        ListView listView = (ListView)findViewById(R.id.mdd_list);
+        ListView listView = (ListView) findViewById(R.id.mdd_list);
         final MddViewAdapter adapter = new MddViewAdapter(this, mMddDataList);
         listView.setAdapter(adapter);
         mMddAdapter = adapter;
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView parent, View v, int position, long id){
+            public void onItemClick(AdapterView parent, View v, int position, long id) {
                 Toast.makeText(getApplicationContext(),
                         String.format("%10.1f", adapter.getItem(position).getPrice()),
                         Toast.LENGTH_SHORT).show();
             }
         });
 
-        Button buttonDataGet = (Button)findViewById(R.id.data_get);
+        Button buttonDataGet = (Button) findViewById(R.id.data_get);
         buttonDataGet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,26 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-//        //String tmp = "{\"mdd_stocks\":[{\"code\":\"TQQQ\",\"update\":\"2022-02-18\",\"price\":\"50.40\",\"cur_down\":\"43.12\"}]}";
-//        String tmp = "{\"mdd_stocks\":[{\"code\":\"TQQQ\",\"update\":\"2022-02-18\",\"price\":\"50.40\",\"cur_down\":\"43.12\",\"this_max_mdd_date\":\"2022-02-18\",\"this_max_mdd\":\"43.12\"},{\"code\":\"QLD\",\"update\":\"2022-02-18\",\"price\":\"64.70\",\"cur_down\":\"29.98\",\"this_max_mdd_date\":\"2022-02-18\",\"this_max_mdd\":\"29.98\"},{\"code\":\"QQQ\",\"update\":\"2022-02-18\",\"price\":\"341.50\",\"cur_down\":\"15.47\",\"this_max_mdd_date\":\"2022-01-27\",\"this_max_mdd\":\"15.57\"},{\"code\":\"SPY\",\"update\":\"2022-02-18\",\"price\":\"434.20\",\"cur_down\":\"9.11\",\"this_max_mdd_date\":\"2022-01-27\",\"this_max_mdd\":\"9.73\"},{\"code\":\"SOXL\",\"update\":\"2022-02-18\",\"price\":\"39.60\",\"cur_down\":\"45.75\",\"this_max_mdd_date\":\"2022-01-27\",\"this_max_mdd\":\"50.14\"},{\"code\":\"UPRO\",\"update\":\"2022-02-18\",\"price\":\"57.20\",\"cur_down\":\"26.29\",\"this_max_mdd_date\":\"2022-01-27\",\"this_max_mdd\":\"26.93\"}],\"laa\":{\"labor\":\"True\",\"Spy\":\"False\"}}";
-//
-//        //String tmp = "{ \"aa\": [{\"code\":\"TQQQ\",\"update\":\"2022-02-18\",\"price\":\"50.40\",\"cur_down\":\"43.12\",\"this_max_mdd_date\":\"2022-02-18\",\"this_max_mdd\":\"43.12\"}] }";
-//        //String tmp = "{\"mdd_stocks\":[{\"code\":\"TQQQ\",\"update\":\"2022-02-18\",\"price\":\"50.40\",\"cur_down\":\"43.12\",\"this_max_mdd_date\":\"2022-02-18\",\"this_max_mdd\":\"43.12\"}]";
-//        //String tmp = "{\"laa\":{\"labor\":\"True\",\"Spy\":\"False\"}}";
-//        //String tmp = "{\"laa\":\"laa_value\"}";
-//        String tmp = "{\"mdd_stocks\":[{\"code\":\"TQQQ\",\"update\":\"2022-02-18\",\"price\":\"50.40\",\"cur_down\":\"43.12\",\"this_max_mdd_date\":\"2022-02-18\",\"this_max_mdd\":\"43.12\"},{\"code\":\"QLD\",\"update\":\"2022-02-18\",\"price\":\"64.70\",\"cur_down\":\"29.98\",\"this_max_mdd_date\":\"2022-02-18\",\"this_max_mdd\":\"29.98\"},{\"code\":\"QQQ\",\"update\":\"2022-02-18\",\"price\":\"341.50\",\"cur_down\":\"15.47\",\"this_max_mdd_date\":\"2022-01-27\",\"this_max_mdd\":\"15.57\"},{\"code\":\"SPY\",\"update\":\"2022-02-18\",\"price\":\"434.20\",\"cur_down\":\"9.11\",\"this_max_mdd_date\":\"2022-01-27\",\"this_max_mdd\":\"9.73\"},{\"code\":\"SOXL\",\"update\":\"2022-02-18\",\"price\":\"39.60\",\"cur_down\":\"45.75\",\"this_max_mdd_date\":\"2022-01-27\",\"this_max_mdd\":\"50.14\"},{\"code\":\"UPRO\",\"update\":\"2022-02-18\",\"price\":\"57.20\",\"cur_down\":\"26.29\",\"this_max_mdd_date\":\"2022-01-27\",\"this_max_mdd\":\"26.93\"}],\"laa\":{\"labor\":\"True\",\"Spy\":\"False\"}}";
-//        try{
-//            JSONObject jsonObject = new JSONObject(tmp);
-//            JSONObject laa = jsonObject.getJSONObject("laa");
-//            String spyValue = laa.getString("Spy");
-//            Toast.makeText(getApplicationContext(),
-//                    "SPY Status: " + spyValue, Toast.LENGTH_SHORT).show();
-//        }
-//        catch (JSONException e){
-//            Toast.makeText(getApplicationContext(),
-//                    "Error: " + e.toString(), Toast.LENGTH_SHORT).show();
-//        }
     }
 
     public void requestServerData(){
@@ -101,9 +81,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
-
-        //NavHostFragment.findNavController(FirstFragment.this)
-        //        .navigate(R.id.action_FirstFragment_to_SecondFragment);
     }
 
     public void parseServerResponse(String resp){
