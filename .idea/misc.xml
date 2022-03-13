@@ -3,7 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/study/harryport/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/study/harryport/app/src/main/res/layout/activity_asset_alloc_status.xml" value="0.1015625" />
+        <entry key="..\:/study/harryport/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/study/harryport/app/src/main/res/layout/asset_detail_item.xml" value="0.16" />
+        <entry key="..\:/study/harryport/app/src/main/res/layout/asset_list_item.xml" value="0.2" />
+        <entry key="..\:/study/harryport/app/src/main/res/layout/fragment_asset_alloc_fund.xml" value="0.176" />
+        <entry key="..\:/study/harryport/app/src/main/res/layout/fund_status_item.xml" value="0.2" />
+        <entry key="..\:/study/harryport/app/src/main/res/layout/fund_summary.xml" value="0.104296875" />
         <entry key="..\:/study/harryport/app/src/main/res/layout/mdd_list_item.xml" value="0.4" />
       </map>
     </option>

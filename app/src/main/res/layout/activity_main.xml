@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical" >
+<LinearLayout
+    android:id="@+id/control_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
     <Button
         android:id="@+id/data_get"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Get Data"/>
-    <ListView
-        android:id="@+id/mdd_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+    <Button
+        android:id="@+id/show_asset_funds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Funds"/>
+</LinearLayout>
+<ListView
+    android:id="@+id/mdd_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    />
 </LinearLayout>

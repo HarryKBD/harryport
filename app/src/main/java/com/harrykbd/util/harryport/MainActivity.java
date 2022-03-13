@@ -2,6 +2,7 @@ package com.harrykbd.util.harryport;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,6 +26,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private ArrayList<MddData> mMddDataList;
     private MddViewAdapter mMddAdapter;
+    private ArrayList<AssetAllocFund> mAssetAllocFundList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +53,20 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         "Refreshing the list", Toast.LENGTH_SHORT).show();
                 requestServerData();
+            }
+        });
 
+        Button buttonShowFund = (Button) findViewById(R.id.show_asset_funds);
+        buttonShowFund.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                mMddDataList.clear();
+                Toast.makeText(getApplicationContext(),
+                        "Showing asset alloc funds", Toast.LENGTH_SHORT).show();
+                //Intent i = new Intent(MainActivity.this, AssetAllocStatusActivity.class);
+                Intent i = new Intent(MainActivity.this, FundSummaryActivity.class);
+                i.putExtra("fund_list", mAssetAllocFundList);
+                startActivity(i);
             }
         });
     }
@@ -120,6 +135,16 @@ public class MainActivity extends AppCompatActivity {
                 ddDate[4] = convertDate(item.getString("last_peak_date"));
                 mMddDataList.add(new MddData(code, dd, ddDate));
             }
+
+            JSONArray assetAllocFunds = jsonObject.getJSONArray("asset_alloc_funds");
+
+
+            for (int i=0; i < assetAllocFunds.length(); i++) {
+                JSONObject item = assetAllocFunds.getJSONObject(i);
+                AssetAllocFund fund = new AssetAllocFund(item);
+                mAssetAllocFundList.add(fund);
+            }
+
             mMddAdapter.notifyDataSetChanged();
             //JSONObject laa = jsonObject.getJSONObject("laa");
             //String spyValue = laa.getString("Spy");

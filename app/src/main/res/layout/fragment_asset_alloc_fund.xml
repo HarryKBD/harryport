@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F10606">
+    <TextView
+        android:id="@+id/fund_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_purple"
+        android:text="All Weather Fund"
+        android:textSize="32sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"/>
+
+    <LinearLayout
+        android:id="@+id/fund_summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:layout_below="@id/fund_name"
+        android:layout_alignParentLeft="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/purple_200"
+                android:text="Invested" />
+
+            <TextView
+                android:id="@+id/invested_val"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/purple_200"
+                android:text="100000000"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/purple_200"
+                android:text="Current Val"/>
+
+            <TextView
+                android:id="@+id/current_val"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/purple_200"
+                android:text="2000000000"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/purple_200"
+                android:text="Profit"/>
+            <TextView
+                android:id="@+id/profit_ratio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/purple_200"
+                android:text="2000%"/>
+        </LinearLayout>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/asset_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fund_summary"
+        android:layout_alignParentLeft="true"
+        android:background="@color/teal_200"/>
+    <ListView
+        android:id="@+id/asset_detail_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/asset_list"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>
